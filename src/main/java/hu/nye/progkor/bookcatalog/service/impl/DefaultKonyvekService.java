@@ -8,9 +8,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * .
+ */
 @Service
 public class DefaultKonyvekService implements KonyvekService {
     private final Repository<Konyvek, Long> koynvekRepository;
+
     @Autowired
     public DefaultKonyvekService(Repository<Konyvek, Long> koynvekRepsotiory) {
         this.koynvekRepository = koynvekRepsotiory;
@@ -38,6 +42,6 @@ public class DefaultKonyvekService implements KonyvekService {
 
     @Override
     public void deleteKonyvekById(Long id) {
-    koynvekRepository.deleteById(id);
+        koynvekRepository.deleteById(id);
     }
 }

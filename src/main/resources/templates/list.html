@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Könyvek listája</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h3 class="pt-5">Könyvek listája</h3>
+
+    <a th:href="@{'/konyvkatalogus/create'}"
+       type="button"
+       class="btn">Új hozzáadása</a>
+
+    <table class="table table-striped pt-5">
+        <caption>Zeneszámok listája</caption>
+        <thread>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Író</th>
+                <th scope="col">Típus</th>
+                <th scope="col">Kiadás dátuma</th>
+                <th scope="col">Oldalszám</th>
+                <th scope="col">Cím</th>
+
+            </tr>
+        </thread>
+        <tbody>
+        <tr th:each="konyvek: ${konyvek}">
+            <th scope="row"
+                th:text="${konyvek.id}"></th>
+            <td th:text="${konyvek.title}"></td>
+            <td th:text="${konyvek.artist}"></td>
+            <td th:text="${konyvek.album}"></td>
+            <td th:text="${konyvek.genre}">
+            <td>
+                <a th:href="@{'/konyvkatalogus/' + ${konyvek.id}}"
+                   type="button"
+                   class="btn btn-warning">Szerkesztés</a>
+                <a th:href="@{'/konyvkatalogus/' + ${konyvek.id} + '/delete'}"
+                   type="button"
+                   class="btn btn-danger">Törlés</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

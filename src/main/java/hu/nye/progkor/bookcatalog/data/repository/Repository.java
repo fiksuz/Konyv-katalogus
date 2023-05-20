@@ -3,7 +3,6 @@ package hu.nye.progkor.bookcatalog.data.repository;
 import java.util.List;
 
 /**
- *
  * TODO.
  */
 public interface Repository<T, ID> {

@@ -1,4 +1,4 @@
-package hu.nye.progkor.bookcatalog.web;
+package hu.nye.progkor.bookcatalog.web.controller;
 
 import hu.nye.progkor.bookcatalog.data.model.Konyvek;
 import hu.nye.progkor.bookcatalog.service.KonyvekService;

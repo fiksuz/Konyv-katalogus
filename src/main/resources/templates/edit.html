@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Product Creating form</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <form method="post"
+                  th:action="@{/car-catalog/update}">
+                <div class="form-group">
+                    <label for="name">Termék modósító adatlap</label>
+                </div>
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <input type="text"
+                           id="id"
+                           name="id"
+                           readonly
+                           class="form-control"
+                           th:value="${car.id}"/>
+                </div>
+                <div class="form-group">
+                    <label for="make">Gyártó</label>
+                    <input type="text"
+                           id="make"
+                           name="make"
+                           class="form-control"
+                           th:value="${car.make}"/>
+                </div>
+                <div class="form-group">
+                    <label for="type">Típus</label>
+                    <input type="text"
+                           id="type"
+                           name="type"
+                           class="form-control"
+                           th:value="${car.type}"/>
+                </div>
+                <div class="form-group">
+                    <label for="color">Szín</label>
+                    <input type="text"
+                           id="color"
+                           name="color"
+                           class="form-control"
+                           th:value="${car.color}"/>
+                </div>
+                <div class="form-group">
+                    <label for="weight">Össztömeg</label>
+                    <input type="text"
+                           id="weight"
+                           name="weight"
+                           class="form-control"
+                           th:value="${car.weight}"/>
+                </div>
+                <div class="form-group">
+                    <label for="color">Teljesítmény</label>
+                    <input type="text"
+                           id="hp"
+                           name="hp"
+                           class="form-control"
+                           th:value="${car.hp}"/>
+                </div>
+                <div class="form-group">
+                    <label for="color">Nyomaték</label>
+                    <input type="text"
+                           id="nm"
+                           name="nm"
+                           class="form-control"
+                           th:value="${car.nm}"/>
+                </div>
+                <div class="form-group">
+                    <label for="color">Fogyasztás</label>
+                    <input type="text"
+                           id="consumption"
+                           name="consumption"
+                           class="form-control"
+                           th:value="${car.consumption}"/>
+                </div>
+
+                <button class="btn btn-primary"
+                        type="submit">Módosít
+                </button>
+                <a th:href="@{/car-catalog}"
+                   class="btn btn-secondary"
+                   type="submit">Vissza a listához</a>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
