@@ -1,7 +1,6 @@
 package hu.nye.progkor.bookcatalog.web.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,59 +19,76 @@ import hu.nye.progkor.bookcatalog.service.KonyvekService;
  */
 @Controller
 @RequestMapping("/konyvkatalogus")
-public class KonyvekkatalogusController {
+public class KonyvkatalogusController {
 
     private final KonyvekService konyvekService;
 
+    /**
+     * .
+     */
     @Autowired
-    public KonyvekkatalogusController(KonyvekService konyvekService) {
+    public KonyvkatalogusController(KonyvekService konyvekService) {
         this.konyvekService = konyvekService;
     }
 
-
+    /**
+     * .
+     */
     @GetMapping("/{id}")
     public String getKonyvekById(Model model, @PathVariable Long id) {
         Konyvek konyvek = konyvekService.retrieveKonyvekById(id);
         model.addAttribute("konyvek", konyvek);
-        return "edit";
+        return "konyvkatalogus/edit";
     }
 
-
+    /**
+     * .
+     */
     @GetMapping
     public String getAllKonyvek(Model model) {
         List<Konyvek> allKonyvek = konyvekService.retrieveAllKonyvek();
         model.addAttribute("konyvek", allKonyvek);
-        return "list";
+        return "konyvkatalogus/list";
     }
 
+    /**
+     * .
+     */
 
     @GetMapping("/create")
     public String createKonyvek() {
-        return "create";
+        return "konyvkatalogus/create";
     }
 
+    /**
+     * .
+     */
 
     @PostMapping("/create")
     public String createKonyvek(Model model, Konyvek konyvek) {
         Konyvek newKonyvek = konyvekService.createKonyvek(konyvek);
         model.addAttribute("konyvek", newKonyvek);
-        return "edit";
+        return "konyvkatalogus/edit";
     }
 
-
+    /**
+     * .
+     */
     @PostMapping(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String updateKonyvek(Model model, Konyvek konyvek) {
         Konyvek updatedKonyvek = konyvekService.updateKonyvek(konyvek);
         model.addAttribute("konyvek", updatedKonyvek);
-        return "edit";
+        return "konyvkatalogus/edit";
     }
 
-
+    /**
+     * .
+     */
     @GetMapping("/{id}/delete")
     public String deleteKonyvekById(Model model, @PathVariable Long id) {
         konyvekService.deleteKonyvekById(id);
         List<Konyvek> allKonyvek = konyvekService.retrieveAllKonyvek();
         model.addAttribute("konyvek", allKonyvek);
-        return "list";
+        return "konyvkatalogus/list";
     }
 }
