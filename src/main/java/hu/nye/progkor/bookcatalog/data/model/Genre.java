@@ -1,4 +1,5 @@
 package hu.nye.progkor.bookcatalog.data.model;
+
 /**
  * enum osztály
  */

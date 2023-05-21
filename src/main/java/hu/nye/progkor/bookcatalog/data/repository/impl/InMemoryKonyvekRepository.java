@@ -7,14 +7,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * TODO.
+ */
 @org.springframework.stereotype.Repository
 
-public class inMemoryKonyvekRepository implements Repository<Konyvek, Long>{
+public class InMemoryKonyvekRepository implements Repository<Konyvek, Long> {
     private static final Map<Long, Konyvek> STORAGE = new HashMap<Long, Konyvek>();
 
     @Override
     public Konyvek save(Konyvek konyvek) {
-        Long id = STORAGE.size() +1L;
+        Long id = STORAGE.size() + 1L;
         konyvek.setId(id);
         STORAGE.put(id, konyvek);
         return STORAGE.get(id);

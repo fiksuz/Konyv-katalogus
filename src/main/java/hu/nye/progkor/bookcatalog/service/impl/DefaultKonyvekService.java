@@ -8,36 +8,40 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * .
+ */
 @Service
 public class DefaultKonyvekService implements KonyvekService {
-    private final Repository<Konyvek, Long> koynvekRepository;
+    private final Repository<Konyvek, Long> konyvekRepository;
+
     @Autowired
-    public DefaultKonyvekService(Repository<Konyvek, Long> koynvekRepsotiory) {
-        this.koynvekRepository = koynvekRepsotiory;
+    public DefaultKonyvekService(Repository<Konyvek, Long> konyvekRepsotiory) {
+        this.konyvekRepository = konyvekRepsotiory;
     }
 
     @Override
     public Konyvek createKonyvek(Konyvek konyvek) {
-        return koynvekRepository.save(konyvek);
+        return konyvekRepository.save(konyvek);
     }
 
     @Override
     public Konyvek retrieveKonyvekById(Long id) {
-        return koynvekRepository.getById(id);
+        return konyvekRepository.getById(id);
     }
 
     @Override
     public List<Konyvek> retrieveAllKonyvek() {
-        return koynvekRepository.getAll();
+        return konyvekRepository.getAll();
     }
 
     @Override
     public Konyvek updateKonyvek(Konyvek konyvek) {
-        return koynvekRepository.update(konyvek);
+        return konyvekRepository.update(konyvek);
     }
 
     @Override
     public void deleteKonyvekById(Long id) {
-    koynvekRepository.deleteById(id);
+        konyvekRepository.deleteById(id);
     }
 }

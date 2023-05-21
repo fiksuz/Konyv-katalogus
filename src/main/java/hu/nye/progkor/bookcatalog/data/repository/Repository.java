@@ -3,17 +3,16 @@ package hu.nye.progkor.bookcatalog.data.repository;
 import java.util.List;
 
 /**
- *
  * TODO.
  */
-public interface Repository<T, ID> {
+public interface Repository<T, I> {
     T save(T item);
 
-    T getById(ID id);
+    T getById(I id);
 
     List<T> getAll();
 
     T update(T item);
 
-    void deleteById(ID id);
+    void deleteById(I id);
 }
