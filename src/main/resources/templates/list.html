@@ -18,7 +18,7 @@
 
     <h3 class="pt-5">Könyvek listája</h3>
 
-    <a th:href="@{'/konyvkatalogus/create'}"
+    <a th:href="@{'/create'}"
        type="button"
        class="btn">Új hozzáadása</a>
 
@@ -36,18 +36,19 @@
             </tr>
         </thread>
         <tbody>
-        <tr th:each="konyvek: ${konyvek}">
+        <tr th:each="konyv: ${konyvek}">
             <th scope="row"
-                th:text="${konyvek.id}"></th>
-            <td th:text="${konyvek.title}"></td>
-            <td th:text="${konyvek.artist}"></td>
-            <td th:text="${konyvek.album}"></td>
-            <td th:text="${konyvek.genre}">
+                th:text="${konyv.id}"></th>
+            <td th:text="${konyv.writer}"></td>
+            <td th:text="${konyv.genre}"></td>
+            <td th:text="${konyv.releasedate}"></td>
+            <td th:text="${konyv.pages}"></td>
+            <td th:text="${konyv.name}">
             <td>
-                <a th:href="@{'/konyvkatalogus/' + ${konyvek.id}}"
+                <a th:href="@{'/konyvkatalogus/edit.html'}"
                    type="button"
                    class="btn btn-warning">Szerkesztés</a>
-                <a th:href="@{'/konyvkatalogus/' + ${konyvek.id} + '/delete'}"
+                <a th:href="@{'/konyvkatalogus/' + ${konyv.id} + '/delete'}"
                    type="button"
                    class="btn btn-danger">Törlés</a>
             </td>

@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-4 mt-5">
             <form method="post"
-                  th:action="@{/music-catalog/create}">
+                  th:action="@{/create}">
                 <div class="form-group">
                     <label for="name">Könyv katalógus létrehozás</label>
                 </div>
@@ -64,7 +64,7 @@
                 <button class="btn btn-primary pt-2"
                         type="submit">Létrehoz
                 </button>
-                <a th:href="@{/konyvkatalogus}"
+                <a th:href="@{/list.html}"
                    class="btn btn-secondary pt-2"
                    type="submit">Vissza a listához</a>
             </form>
