@@ -45,7 +45,7 @@
             <td th:text="${konyv.pages}"></td>
             <td th:text="${konyv.name}">
             <td>
-                <a th:href="@{'/konyvkatalogus/edit.html'}"
+                <a th:href="@{'/konyvkatalogus/' + ${konyv.id}}"
                    type="button"
                    class="btn btn-warning">Szerkesztés</a>
                 <a th:href="@{'/konyvkatalogus/' + ${konyv.id} + '/delete'}"
