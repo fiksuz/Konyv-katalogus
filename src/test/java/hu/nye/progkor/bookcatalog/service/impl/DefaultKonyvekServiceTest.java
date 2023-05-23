@@ -22,8 +22,8 @@ import static org.mockito.Mockito.*;
 
 class DefaultKonyvekServiceTest {
 
-    private static final Long DUMMY_KONYVEK_ID = 1L;
-    private static final Konyvek DUMMY_KONNYVEK = new Konyvek(DUMMY_KONYVEK_ID, "writer", Genre.Fantasy, 2001, 520, "Angel");
+    private static final Long D_KONYVEK_ID = 1L;
+    private static final Konyvek D_KONNYVEK = new Konyvek(D_KONYVEK_ID, "writer", Genre.Fantasy, 2001, 520, "Angel");
     @Mock
     private Repository<Konyvek, Long> konyvekRepository;
     private KonyvekService underTest;
@@ -37,41 +37,41 @@ class DefaultKonyvekServiceTest {
     @Test
     void createKonyvekShouldDelegadeToRepositoryAndReturnSavedKonyvek() {
         //Given
-        given(konyvekRepository.save(DUMMY_KONNYVEK)).willReturn(DUMMY_KONNYVEK);
+        given(konyvekRepository.save(D_KONNYVEK)).willReturn(D_KONNYVEK);
 
         //When
-        final Konyvek actual = underTest.createKonyvek(DUMMY_KONNYVEK);
+        final Konyvek actual = underTest.createKonyvek(D_KONNYVEK);
 
         //Then
-        assertThat(actual, equalTo(DUMMY_KONNYVEK));
-        verify(konyvekRepository).save(DUMMY_KONNYVEK);
+        assertThat(actual, equalTo(D_KONNYVEK));
+        verify(konyvekRepository).save(D_KONNYVEK);
         verifyNoMoreInteractions(konyvekRepository);
     }
 
     @Test
     void retrieveKonyvekById() {
         //Given
-        given(konyvekRepository.getById(DUMMY_KONYVEK_ID)).willReturn(DUMMY_KONNYVEK);
+        given(konyvekRepository.getById(D_KONYVEK_ID)).willReturn(D_KONNYVEK);
 
         //when
-        final Konyvek actual = underTest.retrieveKonyvekById(DUMMY_KONYVEK_ID);
+        final Konyvek actual = underTest.retrieveKonyvekById(D_KONYVEK_ID);
 
         //then
-        assertThat(actual, equalTo(DUMMY_KONNYVEK));
-        verify(konyvekRepository).getById(DUMMY_KONYVEK_ID);
+        assertThat(actual, equalTo(D_KONNYVEK));
+        verify(konyvekRepository).getById(D_KONYVEK_ID);
         verifyNoMoreInteractions(konyvekRepository);
     }
 
     @Test
     void retrieveAllKonyvek() {
         //Given
-        given(konyvekRepository.getAll()).willReturn(List.of(DUMMY_KONNYVEK));
+        given(konyvekRepository.getAll()).willReturn(List.of(D_KONNYVEK));
 
         //when
         final List<Konyvek> actual = underTest.retrieveAllKonyvek();
 
         //then
-        assertThat(actual, equalTo(List.of(DUMMY_KONNYVEK)));
+        assertThat(actual, equalTo(List.of(D_KONNYVEK)));
         verify(konyvekRepository).getAll();
         verifyNoMoreInteractions(konyvekRepository);
     }
